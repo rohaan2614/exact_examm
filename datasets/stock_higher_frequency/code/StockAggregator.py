@@ -43,35 +43,7 @@ class StockAggregator:
             print(f"\t => {response.text}")
             exit
             return None
-        
-    # def __to_csv(self, data, filename):
-    #     """
-    #     Saves the fetched data to a CSV file.
-        
-    #     Parameters:
-    #         data (dict): The data returned by the API.
-    #         filename (str): The filename of the CSV file to save the data.
-    #     """
-    #     if not data or 'results' not in data:
-    #         print("No data to save.")
-    #         return
-        
-    #     # Assuming 'results' contains the list of data points to be saved
-    #     results = data['results']
-        
-    #     # Open the file and prepare to write
-    #     with open(filename, 'w', newline='') as file:
-    #         # Determine the fieldnames from the first item's keys
-    #         fieldnames = results[0].keys()
-    #         writer = csv.DictWriter(file, fieldnames=fieldnames)
-            
-    #         # Write the header and the rows
-    #         writer.writeheader()
-    #         for row in results:
-    #             writer.writerow(row)
-                
-    #     print(f"Data successfully saved to {filename}.")
-    
+         
     def __to_csv(self, data, filename):
         if not data or 'results' not in data:
             print("No data to save.")
@@ -90,31 +62,6 @@ class StockAggregator:
                 
         print(f"Data successfully saved to {filename}.")
         
-    # def __append_to_csv(self, data, filename):
-    #     """
-    #     Appends the fetched data to a CSV file. If the file doesn't exist, it creates it.
-        
-    #     Parameters:
-    #         data (dict): The data returned by the API.
-    #         filename (str): The filename of the CSV file to append the data.
-    #     """
-    #     if not data or 'results' not in data:
-    #         print("No data to append.")
-    #         return
-        
-    #     should_write_header = not os.path.exists(filename) or os.path.getsize(filename) == 0
-    #     results = data['results']
-        
-    #     with open(filename, 'a', newline='') as file:
-    #         fieldnames = results[0].keys()
-    #         writer = csv.DictWriter(file, fieldnames=fieldnames)
-            
-    #         if should_write_header:
-    #             writer.writeheader()
-    #         for row in results:
-    #             writer.writerow(row)
-                
-    #     print(f"Data successfully appended to {filename}.")
     def __append_to_csv(self, data, filename):
         if not data or 'results' not in data:
             print("No data to append.")
